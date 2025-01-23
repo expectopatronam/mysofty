@@ -192,7 +192,7 @@ const Home: React.FC = () => {
       <div id="contact" style={styles.section}>
         <div style={styles.contactContainer}>
           <h1 style={styles.sectionTitle}>Get In Touch</h1>
-          <p style={styles.sectionSubtext}>Let's discuss your next project</p>
+          <p style={styles.sectionSubtext}>Let&apos;s discuss your next project</p>
           
           <form onSubmit={handleSubmit} style={styles.contactForm}>
             <div style={styles.formGroup}>
