@@ -134,32 +134,29 @@ const Home: React.FC = () => {
       </nav>
 
       <section id="home" className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 pt-32 px-2 py-20 bg-white">
+        {/* Left Content */}
+        <div className="text-center md:text-left max-w-xl md:w-1/2">
+          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
+        {/* Removed MySofty */}
+          </h1>
+            <p className="text-4xl mb-10 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-bold">
+            Turn your ideas to software in 30 days. Your idea, we execute the business, you just sit back and relax.
+            </p>
+          <p className="text-xl mb-10 text-gray-700">
+        Our streamlined process ensures that your project is completed on time and within budget. We handle everything from initial concept to final deployment, providing regular updates and incorporating your feedback every step of the way.
+          </p>
+          <p className="text-xl text-gray-700">
+        With a dedicated team of experts, cutting-edge technology, and a commitment to excellence, we make the software development process easy and stress-free for you.
+          </p>
+        </div>
 
-      <div className="bg-gradient-to-br from-gray-200 to-gray-300 rounded-lg my-10 p-10 max-w-screen-lg w-full">
-      {/* Left Content */}
-          <div className="text-center md:text-left max-w-xl md:w-1/2">
-        <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-          {/* Removed MySofty */}
-        </h1>
-        <p className="text-2xl mb-10 text-gray-700">
-          Turn your ideas to software in 30 days. Your idea, we execute the business, you just sit back and relax.
-        </p>
-        <p className="text-xl mb-10 text-gray-700">
-          Our streamlined process ensures that your project is completed on time and within budget. We handle everything from initial concept to final deployment, providing regular updates and incorporating your feedback every step of the way.
-        </p>
-        <p className="text-xl text-gray-700">
-          With a dedicated team of experts, cutting-edge technology, and a commitment to excellence, we make the software development process easy and stress-free for you.
-        </p>
-          </div>
-
-          {/* Right Image */}
-          <div className="w-full md:w-1/2">
-            <img
-              src="/tech-company-concept-illustration-b.png" // Ensure this path is correct
-              alt="Tech Illustration"
-              className="w-full h-auto max-w-lg rounded-lg"
-            />
-          </div>
+        {/* Right Image */}
+        <div className="w-full md:w-1/2">
+          <img
+        src="/tech-company-concept-illustration-b.png" // Ensure this path is correct
+        alt="Tech Illustration"
+        className="w-full h-auto max-w-lg rounded-lg"
+          />
         </div>
       </section>
 
