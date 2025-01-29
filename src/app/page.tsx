@@ -236,7 +236,7 @@ const Home: React.FC = () => {
       <section id="contact" className="py-20 bg-white">
         <div className="container mx-auto px-6 max-w-4xl">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">Get In Touch</h2>
-          <p className="text-xl text-center text-gray-600 mb-16">Let's discuss your next project</p>
+          <p className="text-xl text-center text-gray-600 mb-16">Lets discuss your next project</p>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
