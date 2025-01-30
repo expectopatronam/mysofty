@@ -1,8 +1,7 @@
 "use client"
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-scroll";
-import Image from 'next/image';
-
+ 
 
 interface Service {
   title: string;
