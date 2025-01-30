@@ -135,32 +135,24 @@ const Home: React.FC = () => {
         </div>
       </nav>
 
-      <section id="home" className="min-h-screen flex flex-col md:flex-row items-center justify-center gap-10 pt-32 px-2 py-20 bg-white">
-        {/* Left Content */}
-        <div className="text-center md:text-left max-w-xl md:w-1/2">
-          <h1 className="text-6xl font-bold mb-6 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent">
-            {/* Removed MySofty */}
+      {/* Hero Section */}
+      <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-gradient-to-br from-gray-100 to-white">
+        <div className="max-w-4xl">
+          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">Turn your
+            <span className="inline-block">💡</span> ideas to <br /> software in <span className="inline-block bg-gradient-to-r from-blue-700 to-red-500 text-transparent bg-clip-text">30 days</span> <span className="inline-block">🚀</span>
           </h1>
-          <p className="text-4xl mb-10 bg-gradient-to-r from-green-400 to-blue-400 bg-clip-text text-transparent font-bold">
-            Turn your ideas to software in 30 days. Your idea, we execute the business, you just sit back and relax.
+          <p className="text-lg md:text-2xl text-gray-700 mt-4">
+            Your idea, we execute the business. You just sit back and relax.
           </p>
-          <p className="text-xl mb-10 text-gray-700">
-            Our streamlined process ensures that your project is completed on time and within budget. We handle everything from initial concept to final deployment, providing regular updates and incorporating your feedback every step of the way.
-          </p>
-          <p className="text-xl text-gray-700">
-            With a dedicated team of experts, cutting-edge technology, and a commitment to excellence, we make the software development process easy and stress-free for you.
-          </p>
-        </div>
 
-        {/* Right Image */}
-        <div className="w-full md:w-1/2">
-          <Image
-            src="/tech-company-concept-illustration-b.png" // Ensure this path is correct
-            alt="Tech Illustration"
-            width={500} // Adjust width as needed
-            height={500} // Adjust height as needed
-            className="w-full h-auto max-w-lg rounded-lg"
-          />
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
+            <button className="px-6 py-3 text-lg font-semibold bg-gray-900 text-white rounded-lg shadow-md hover:bg-gray-800 transition">
+              Get Started →
+            </button>
+            <button className="px-6 py-3 text-lg font-semibold bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition">
+              Learn More ↓
+            </button>
+          </div>
         </div>
       </section>
 
@@ -295,12 +287,95 @@ const Home: React.FC = () => {
       </section>
 
       {/* About Section */}
-      <section id="about" className="min-h-screen bg-gradient-to-br from-gray-200 to-gray-300 flex items-center justify-center">
-        <div className="text-center">
-          <h2 className="text-4xl font-bold text-gray-800 mb-4">About Section</h2>
-          <p className="text-xl text-gray-600">Learn more about our journey!</p>
+      <footer className="bg-gray-900 text-white py-10 px-6">
+        <div className="max-w-6xl mx-auto">
+          {/* Subscribe Section */}
+          <div className="text-center mb-8">
+            <h2 className="text-xl font-semibold">Subscribe to our developer newsletter</h2>
+            <p className="text-gray-400 text-sm mt-1">
+              Get tips, technical guides, and best practices. Twice a month. Right in your inbox.
+            </p>
+            <button className="mt-3 px-4 py-2 border border-gray-400 rounded-lg text-white hover:bg-gray-800">
+              Subscribe
+            </button>
+          </div>
+
+          {/* Footer Links */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
+            <div>
+              <h3 className="font-semibold text-gray-300">Product</h3>
+              <ul className="mt-2 space-y-1 text-gray-400">
+                <li>Features</li>
+                <li>Enterprise</li>
+                <li>Copilot</li>
+                <li>Security</li>
+                <li>Pricing</li>
+                <li>Team</li>
+                <li>Resources</li>
+                <li>Roadmap</li>
+                <li>Compare</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-300">Platform</h3>
+              <ul className="mt-2 space-y-1 text-gray-400">
+                <li>Developer API</li>
+                <li>Partners</li>
+                <li>Education</li>
+                <li>GitHub CLI</li>
+                <li>GitHub Desktop</li>
+                <li>GitHub Mobile</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-300">Support</h3>
+              <ul className="mt-2 space-y-1 text-gray-400">
+                <li>Docs</li>
+                <li>Community Forum</li>
+                <li>Professional Services</li>
+                <li>Premium Support</li>
+                <li>Skills</li>
+                <li>Status</li>
+                <li>Contact Us</li>
+              </ul>
+            </div>
+            <div>
+              <h3 className="font-semibold text-gray-300">Company</h3>
+              <ul className="mt-2 space-y-1 text-gray-400">
+                <li>About</li>
+                <li>Customer Stories</li>
+                <li>Blog</li>
+                <li>The ReadME Project</li>
+                <li>Careers</li>
+                <li>Newsroom</li>
+                <li>Inclusion</li>
+                <li>Social Impact</li>
+                <li>Shop</li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Footer Bottom */}
+          <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
+            <p>© 2025 YourCompany, Inc.</p>
+            <p className="mt-1">
+              <a href="#" className="hover:underline">Terms</a> •
+              <a href="#" className="hover:underline">Privacy</a> •
+              <a href="#" className="hover:underline">Sitemap</a> •
+              <a href="#" className="hover:underline">What is Git?</a>
+            </p>
+
+            {/* Social Icons */}
+            <div className="flex justify-center space-x-4 mt-4 text-lg">
+              <a href="#" className="hover:text-gray-300">🔗</a>
+              <a href="#" className="hover:text-gray-300">📸</a>
+              <a href="#" className="hover:text-gray-300">🎥</a>
+              <a href="#" className="hover:text-gray-300">🐦</a>
+            </div>
+          </div>
         </div>
-      </section>
+      </footer>
+
     </div>
   );
 };
