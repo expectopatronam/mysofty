@@ -1,7 +1,7 @@
 "use client"
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-scroll";
- 
+
 
 interface Service {
   title: string;
@@ -26,6 +26,7 @@ interface FormData {
 }
 
 const Home: React.FC = () => {
+  const [menuOpen, setMenuOpen] = useState<boolean>(false);
   const services: Service[] = [
     {
       title: "Design",
@@ -40,17 +41,17 @@ const Home: React.FC = () => {
       icon: "💻"
     },
     {
+      title: "Digital Marketing",
+      description: "Comprehensive digital marketing strategies to increase your online presence and reach.",
+      features: ["SEO Optimization", "Content Marketing", "Social Media", "Analytics"],
+      icon: "📈"
+    },
+    {
       title: "Quality Assurance",
       description: "Rigorous testing and debugging to ensure your product meets the highest quality standards.",
       features: ["Automated Testing", "Performance Testing", "Bug Fixing", "Security Testing"],
       icon: "✅"
     },
-    {
-      title: "Digital Marketing",
-      description: "Comprehensive digital marketing strategies to increase your online presence and reach.",
-      features: ["SEO Optimization", "Content Marketing", "Social Media", "Analytics"],
-      icon: "📈"
-    }
   ];
 
   const reviews: Review[] = [
@@ -116,10 +117,18 @@ const Home: React.FC = () => {
   return (
     <div className="relative">
       {/* Navbar */}
-      <nav className="fixed top-0 left-0 w-full bg-gray-800/95 shadow-md text-white z-50">
-        <div className="container mx-auto px-6 py-4">
-          <div className="flex justify-around items-center">
-            {["home", "products", "reviews", "contact", "about"].map((item) => (
+      <nav className="absolute top-0 left-0 w-full text-gray-900 z-10">
+        <div className="container mx-auto px-6 py-4 flex justify-between items-center">
+          <img src="/wordmark logo - nobg.png" alt="Logo" className="h-28" />
+          <div className="md:hidden">
+            <button className="text-gray-900 focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+              </svg>
+            </button>
+          </div>
+          <div className={`md:flex space-x-6 ${menuOpen ? "block" : "hidden"}`}>
+            {["products", "reviews", "contact", "about"].map((item) => (
               <Link
                 key={item}
                 to={item}
@@ -137,9 +146,12 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <section id="home" className="min-h-screen flex flex-col items-center justify-center px-6 text-center bg-gradient-to-br from-gray-100 to-white">
         <div className="max-w-4xl">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight">Turn your
-            <span className="inline-block">💡</span> ideas to <br /> software in <span className="inline-block bg-gradient-to-r from-blue-700 to-red-500 text-transparent bg-clip-text">30 days</span> <span className="inline-block">🚀</span>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-gray-900 leading-tight md:leading-snug">
+            Turn your <span className="inline-block">💡</span> ideas to <br />
+            software in <span className="inline-block bg-gradient-to-r from-blue-700 to-red-500 text-transparent bg-clip-text">30 days</span>
+            <span className="inline-block">🚀</span>
           </h1>
+
           <p className="text-lg md:text-2xl text-gray-700 mt-4">
             Your idea, we execute the business. You just sit back and relax.
           </p>
@@ -148,7 +160,7 @@ const Home: React.FC = () => {
             <button className="px-6 py-3 text-lg font-semibold bg-gray-900 text-white rounded-lg shadow-md hover:bg-gray-800 transition">
               Get Started →
             </button>
-            <button className="px-6 py-3 text-lg font-semibold bg-white border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition">
+            <button className="px-6 py-3 text-lg font-semibold bg-white text-gray-900 border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition">
               Learn More ↓
             </button>
           </div>
@@ -285,72 +297,68 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      {/* About Section */}
       <footer className="bg-gray-900 text-white py-10 px-6">
-        <div className="max-w-6xl mx-auto">
-          {/* Subscribe Section */}
-          <div className="text-center mb-8">
-            <h2 className="text-xl font-semibold">Subscribe to our developer newsletter</h2>
-            <p className="text-gray-400 text-sm mt-1">
-              Get tips, technical guides, and best practices. Twice a month. Right in your inbox.
-            </p>
-            <button className="mt-3 px-4 py-2 border border-gray-400 rounded-lg text-white hover:bg-gray-800">
-              Subscribe
-            </button>
-          </div>
+        <div className="max-w-7xl mx-auto">
+          {/* Wrapper for Subscribe + Footer Links */}
+          <div className="flex flex-col lg:flex-row lg:justify-between gap-10">
 
-          {/* Footer Links */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-sm">
-            <div>
-              <h3 className="font-semibold text-gray-300">Product</h3>
-              <ul className="mt-2 space-y-1 text-gray-400">
-                <li>Features</li>
-                <li>Enterprise</li>
-                <li>Copilot</li>
-                <li>Security</li>
-                <li>Pricing</li>
-                <li>Team</li>
-                <li>Resources</li>
-                <li>Roadmap</li>
-                <li>Compare</li>
-              </ul>
+            {/* Subscribe Section */}
+            <div className="lg:w-1/3">
+              <img src="/wordmark logo - Dark.png" alt="Logo" className="h-12 mb-4" />
+              <h2 className="text-xl font-semibold">Subscribe to our developer newsletter</h2>
+              <p className="text-gray-400 text-sm mt-1">
+                Get tips, technical guides, and best practices. Twice a month. Right in your inbox.
+              </p>
+              <button className="mt-3 px-4 py-2 border border-gray-400 rounded-lg text-white hover:bg-gray-800">
+                Subscribe
+              </button>
             </div>
-            <div>
-              <h3 className="font-semibold text-gray-300">Platform</h3>
-              <ul className="mt-2 space-y-1 text-gray-400">
-                <li>Developer API</li>
-                <li>Partners</li>
-                <li>Education</li>
-                <li>GitHub CLI</li>
-                <li>GitHub Desktop</li>
-                <li>GitHub Mobile</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-300">Support</h3>
-              <ul className="mt-2 space-y-1 text-gray-400">
-                <li>Docs</li>
-                <li>Community Forum</li>
-                <li>Professional Services</li>
-                <li>Premium Support</li>
-                <li>Skills</li>
-                <li>Status</li>
-                <li>Contact Us</li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="font-semibold text-gray-300">Company</h3>
-              <ul className="mt-2 space-y-1 text-gray-400">
-                <li>About</li>
-                <li>Customer Stories</li>
-                <li>Blog</li>
-                <li>The ReadME Project</li>
-                <li>Careers</li>
-                <li>Newsroom</li>
-                <li>Inclusion</li>
-                <li>Social Impact</li>
-                <li>Shop</li>
-              </ul>
+
+            {/* Footer Links */}
+            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 text-sm flex-grow">
+              <div>
+                <h3 className="text-white font-semibold">Product</h3>
+                <ul className="mt-2 space-y-1 text-gray-400">
+                  <li>Features</li>
+                  <li>Enterprise</li>
+                  <li>Copilot</li>
+                  <li>Security</li>
+                  <li>Pricing</li>
+                  <li>Team</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold">Platform</h3>
+                <ul className="mt-2 space-y-1 text-gray-400">
+                  <li>Developer API</li>
+                  <li>Partners</li>
+                  <li>Education</li>
+                  <li>GitHub CLI</li>
+                  <li>GitHub Desktop</li>
+                  <li>GitHub Mobile</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold">Support</h3>
+                <ul className="mt-2 space-y-1 text-gray-400">
+                  <li>Docs</li>
+                  <li>Community Forum</li>
+                  <li>Professional Services</li>
+                  <li>Premium Support</li>
+                  <li>Skills</li>
+                  <li>Status</li>
+                </ul>
+              </div>
+              <div>
+                <h3 className="text-white font-semibold">Company</h3>
+                <ul className="mt-2 space-y-1 text-gray-400">
+                  <li>About</li>
+                  <li>Customer stories</li>
+                  <li>Blog</li>
+                  <li>Careers</li>
+                  <li>Newsroom</li>
+                </ul>
+              </div>
             </div>
           </div>
 
