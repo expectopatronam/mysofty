@@ -85,6 +85,18 @@ const Home: React.FC = () => {
     }
   ];
 
+  const companyLogos = [
+    { src: "/company/bec.png", alt: "BEC" },
+    { src: "/company/ecfile.png", alt: "ECFile" },
+    { src: "/company/ecpaye.png", alt: "ECPaye" },
+    { src: "/company/greeting-world.png", alt: "Greeting World" },
+    { src: "/company/marine-ninjas.png", alt: "Marine Ninjas" },
+    { src: "/company/namdo.png", alt: "Namdo" },
+    { src: "/company/taamsi.png", alt: "Taamsi" },
+    { src: "/company/taks-info.png", alt: "Taks Info" },
+    { src: "/company/ubill.png", alt: "UBill" }
+  ];
+
   const [currentReview, setCurrentReview] = useState<number>(0);
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -232,6 +244,26 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+       {/* Companies Logo Section */}
+       <section className="py-16 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <h2 className="text-xl text-center text-gray-600 mb-12">Trusted by Industry Leaders</h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
+            {companyLogos.map((logo, index) => (
+              <div 
+                key={index} 
+                className="w-full flex items-center justify-center"
+              >
+                <img
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Services Section */}
       <section id="products" className="py-20 bg-white">
