@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { useState,useEffect , ChangeEvent, FormEvent } from "react";
 import { Link } from "react-scroll";
 
 
@@ -26,7 +26,7 @@ interface FormData {
 }
 
 const Home: React.FC = () => {
-  const [menuOpen, setMenuOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
   const services: Service[] = [
     {
       title: "Design",
@@ -93,6 +93,17 @@ const Home: React.FC = () => {
     message: ""
   });
 
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
+
   const nextReview = (): void => {
     setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
   };
@@ -114,20 +125,21 @@ const Home: React.FC = () => {
     console.log("Form submitted:", formData);
   };
 
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
+      setIsOpen(false);
+    }
+  };
+
   return (
     <div className="relative">
       {/* Navbar */}
       <nav className="absolute top-0 left-0 w-full text-gray-900 z-10">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
-          <img src="/wordmark logo - nobg.png" alt="Logo" className="h-28" />
-          <div className="md:hidden">
-            <button className="text-gray-900 focus:outline-none" onClick={() => setMenuOpen(!menuOpen)}>
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-              </svg>
-            </button>
-          </div>
-          <div className={`md:flex space-x-6 ${menuOpen ? "block" : "hidden"}`}>
+          <img src="/wordmark logo - nobg.png" alt="Logo" className="h-20" />
+          
+          {/* Desktop Navigation */}
+          <div className="hidden md:flex space-x-6">
             {["products", "reviews", "contact", "about"].map((item) => (
               <Link
                 key={item}
@@ -140,6 +152,59 @@ const Home: React.FC = () => {
               </Link>
             ))}
           </div>
+
+          {/* Mobile Menu Button */}
+          <button 
+            className="md:hidden text-gray-900 focus:outline-none"
+            onClick={() => setIsOpen(true)}
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+            </svg>
+          </button>
+
+          {/* Mobile Navigation Drawer */}
+          {isOpen && (
+            <div 
+              className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden"
+              onClick={handleOverlayClick}
+            >
+              <div 
+                className={`fixed right-0 top-0 h-full w-64 bg-white transform transition-transform duration-300 ease-in-out ${
+                  isOpen ? 'translate-x-0' : 'translate-x-full'
+                }`}
+              >
+                {/* Drawer Header */}
+                <div className="flex justify-between items-center p-4 border-b">
+                  <h2 className="text-xl font-bold">Menu</h2>
+                  <button 
+                    onClick={() => setIsOpen(false)}
+                    className="p-2 hover:bg-gray-100 rounded-full"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12"></path>
+                    </svg>
+                  </button>
+                </div>
+
+                {/* Drawer Content */}
+                <div className="flex flex-col p-4">
+                  {["products", "reviews", "contact", "about"].map((item) => (
+                    <Link
+                      key={item}
+                      to={item}
+                      smooth
+                      duration={500}
+                      className="py-3 px-4 text-lg font-medium hover:bg-gray-100 rounded-lg transition-colors cursor-pointer capitalize"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </nav>
 
