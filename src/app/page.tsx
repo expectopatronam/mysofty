@@ -1,5 +1,5 @@
 "use client"
-import React, { useState,useEffect , ChangeEvent, FormEvent } from "react";
+import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-scroll";
 
 
@@ -56,29 +56,29 @@ const Home: React.FC = () => {
 
   const reviews: Review[] = [
     {
-      name: "John Smith",
-      company: "Tech Innovators Ltd",
+      name: "Sarala Pandian",
+      company: "ECFile",
       review: "MySofty delivered exceptional results for our web application. Their attention to detail and commitment to quality is outstanding.",
       rating: 5,
       position: "CTO"
     },
     {
-      name: "Sarah Johnson",
-      company: "Digital Solutions Inc",
+      name: "Irfan",
+      company: "Marine Ninjas",
       review: "The team's expertise in both design and development helped us launch our product ahead of schedule. Highly recommended!",
       rating: 5,
       position: "Product Manager"
     },
     {
-      name: "Michael Chen",
-      company: "StartUp Hub",
+      name: "Namrata Singh",
+      company: "Namdo",
       review: "Their SEO services have significantly improved our online presence. We've seen a 200% increase in organic traffic.",
       rating: 5,
       position: "Marketing Director"
     },
     {
-      name: "Emma Davis",
-      company: "Creative Works",
+      name: "Ravi Kumar",
+      company: "Taamsi",
       review: "Outstanding service from start to finish. MySofty understood our vision and transformed it into reality.",
       rating: 5,
       position: "CEO"
@@ -149,7 +149,7 @@ const Home: React.FC = () => {
       <nav className="absolute top-0 left-0 w-full text-gray-900 z-10">
         <div className="container mx-auto px-6 py-4 flex justify-between items-center">
           <img src="/wordmark logo - nobg.png" alt="Logo" className="h-20" />
-          
+
           {/* Desktop Navigation */}
           <div className="hidden md:flex space-x-6">
             {["products", "reviews", "contact", "about"].map((item) => (
@@ -166,7 +166,7 @@ const Home: React.FC = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
+          <button
             className="md:hidden text-gray-900 focus:outline-none"
             onClick={() => setIsOpen(true)}
           >
@@ -177,19 +177,18 @@ const Home: React.FC = () => {
 
           {/* Mobile Navigation Drawer */}
           {isOpen && (
-            <div 
+            <div
               className="fixed inset-0 bg-black bg-opacity-50 z-50 md:hidden"
               onClick={handleOverlayClick}
             >
-              <div 
-                className={`fixed right-0 top-0 h-full w-64 bg-white transform transition-transform duration-300 ease-in-out ${
-                  isOpen ? 'translate-x-0' : 'translate-x-full'
-                }`}
+              <div
+                className={`fixed right-0 top-0 h-full w-64 bg-white transform transition-transform duration-300 ease-in-out ${isOpen ? 'translate-x-0' : 'translate-x-full'
+                  }`}
               >
                 {/* Drawer Header */}
                 <div className="flex justify-between items-center p-4 border-b">
                   <h2 className="text-xl font-bold">Menu</h2>
-                  <button 
+                  <button
                     onClick={() => setIsOpen(false)}
                     className="p-2 hover:bg-gray-100 rounded-full"
                   >
@@ -244,15 +243,15 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-       {/* Companies Logo Section */}
-       <section className="py-16 bg-gray-50">
+      {/* Companies Logo Section */}
+      <section className="py-20 bg-gradient-to-br from-gray-200 to-gray-300">
         <div className="container mx-auto px-6">
           <h2 className="text-xl text-center text-gray-600 mb-12">Trusted by Industry Leaders</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
             {companyLogos.map((logo, index) => (
-              <div 
-                key={index} 
-                className="w-full flex items-center justify-center"
+              <div
+                key={index}
+                className="w-full flex items-center justify-center p-4"
               >
                 <img
                   src={logo.src}
@@ -402,12 +401,12 @@ const Home: React.FC = () => {
             {/* Subscribe Section */}
             <div className="lg:w-1/3">
               <img src="/wordmark logo - Dark.png" alt="Logo" className="h-12 mb-4" />
-              <h2 className="text-xl font-semibold">Subscribe to our developer newsletter</h2>
+              <h2 className="text-xl font-semibold">Get in Touch</h2>
               <p className="text-gray-400 text-sm mt-1">
-                Get tips, technical guides, and best practices. Twice a month. Right in your inbox.
+              Have questions or want to discuss your project? Reach out to us and we'll get back to you as soon as possible.
               </p>
               <button className="mt-3 px-4 py-2 border border-gray-400 rounded-lg text-white hover:bg-gray-800">
-                Subscribe
+              Contact Us
               </button>
             </div>
 
@@ -461,7 +460,7 @@ const Home: React.FC = () => {
 
           {/* Footer Bottom */}
           <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-            <p>© 2025 YourCompany, Inc.</p>
+            <p>© 2025 MySofty, Inc.</p>
             <p className="mt-1">
               <a href="#" className="hover:underline">Terms</a> •
               <a href="#" className="hover:underline">Privacy</a> •
