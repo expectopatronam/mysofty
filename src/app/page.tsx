@@ -21,6 +21,7 @@ interface Review {
 interface FormData {
   name: string;
   email: string;
+  phone: string;
   subject: string;
   message: string;
 }
@@ -101,6 +102,7 @@ const Home: React.FC = () => {
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
+    phone: "+971",
     subject: "",
     message: ""
   });
@@ -132,9 +134,34 @@ const Home: React.FC = () => {
     }));
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    console.log("Form submitted:", formData);
+    
+    try {
+      const response = await fetch('https://bill-api.mysofty.tech/get-in-touch/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormData({
+          name: "",
+          email: "",
+          phone: "+971",
+          subject: "",
+          message: ""
+        });
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert('Failed to send message. Please try again.');
+    }
   };
 
   const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement>) => {
@@ -332,12 +359,13 @@ const Home: React.FC = () => {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-20 bg-white">
+      <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 max-w-4xl">
           <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">Get In Touch</h2>
-          <p className="text-xl text-center text-gray-600 mb-16">Lets discuss your next project</p>
+          <p className="text-xl text-center text-gray-600 mb-16">Let&apos;s discuss your next project</p>
 
-          <form onSubmit={handleSubmit} className="space-y-6">
+          <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+            <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <input
                 type="text"
@@ -345,7 +373,7 @@ const Home: React.FC = () => {
                 placeholder="Your Name"
                 value={formData.name}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
                 required
               />
             </div>
@@ -356,9 +384,23 @@ const Home: React.FC = () => {
                 placeholder="Your Email"
                 value={formData.email}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
                 required
               />
+            </div>
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Phone Number"
+                value={formData.phone}
+                onChange={handleInputChange}
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                required
+              />
+              <p className="text-sm text-gray-600 mt-1 font-medium">
+                Please enter your phone number with country code (+971 501234567).
+              </p>
             </div>
             <div>
               <input
@@ -367,7 +409,7 @@ const Home: React.FC = () => {
                 placeholder="Subject"
                 value={formData.subject}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors"
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
                 required
               />
             </div>
@@ -377,7 +419,7 @@ const Home: React.FC = () => {
                 placeholder="Your Message"
                 value={formData.message}
                 onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-colors min-h-[150px]"
+                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 min-h-[150px] resize-vertical"
                 required
               />
             </div>
@@ -390,6 +432,7 @@ const Home: React.FC = () => {
               </button>
             </div>
           </form>
+          </div>
         </div>
       </section>
 
@@ -403,7 +446,7 @@ const Home: React.FC = () => {
               <img src="/wordmark logo - Dark.png" alt="Logo" className="h-12 mb-4" />
               <h2 className="text-xl font-semibold">Get in Touch</h2>
               <p className="text-gray-400 text-sm mt-1">
-              Have questions or want to discuss your project? Reach out to us and we'll get back to you as soon as possible.
+              Have questions or want to discuss your project? Reach out to us and we&apos;ll get back to you as soon as possible.
               </p>
               <button className="mt-3 px-4 py-2 border border-gray-400 rounded-lg text-white hover:bg-gray-800">
               Contact Us
