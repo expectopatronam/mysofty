@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Modern Start-ups Solutions",
+  title: "Modern Start-up Solutions",
   description: "Discover innovative start-up solutions with MySofty.",
 };
 

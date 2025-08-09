@@ -643,16 +643,16 @@ const Home: React.FC = () => {
                 Transform your ideas into reality with professional software development services. We deliver innovative solutions in 30 days.
               </p>
               <div className="flex space-x-4">
-                <a href="https://www.linkedin.com/in/mysofty" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200">
+                <a href="https://www.linkedin.com/in/mysofty" target="_blank" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200">
                   <span className="text-sm">🔗</span>
                 </a>
-                <a href="https://www.linkedin.com/company/mysofty/" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-200">
+                <a href="https://www.linkedin.com/company/mysofty/" target="_blank" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-200">
                   <span className="text-sm">📸</span>
                 </a>
-                <a href="https://www.linkedin.com/company/mysofty/" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-200">
+                <a href="https://www.linkedin.com/company/mysofty/" target="_blank" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-200">
                   <span className="text-sm">🎥</span>
                 </a>
-                <a href="https://www.reddit.com/user/mysofty/" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors duration-200">
+                <a href="https://www.reddit.com/user/mysofty/" target="_blank" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors duration-200">
                   <span className="text-sm">🐦</span>
                 </a>
               </div>
@@ -700,9 +700,9 @@ const Home: React.FC = () => {
               <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
               <ul className="space-y-2 text-gray-300 text-sm">
                 <li>
-                  <Link to="about" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                  <NextLink href="/about" className="hover:text-white transition-colors duration-200 cursor-pointer">
                     About Us
-                  </Link>
+                  </NextLink>
                 </li>
                 <li>
                   <Link to="reviews" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">

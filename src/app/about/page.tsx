@@ -270,53 +270,119 @@ const AboutPage: React.FC = () => {
           </div>
         </section>
 
-        {/* Technologies */}
+        {/* Modern Start-up Solutions */}
         <section className="mb-20">
-          <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">Technologies We Master</h2>
-          <div className="bg-white rounded-2xl shadow-lg p-8">
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-6">
-              
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-2xl">⚛️</span>
-                </div>
-                <div className="text-sm font-medium text-gray-700">React</div>
-              </div>
+          <h2 className="text-4xl font-bold text-gray-800 mb-4 text-center">Modern Start-up Solutions</h2>
+          <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+            We don't limit ourselves to specific technologies. Our expertise spans across all modern frameworks, platforms, and tools needed to bring your start-up vision to life.
+          </p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-black rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-2xl text-white">▲</span>
-                </div>
-                <div className="text-sm font-medium text-gray-700">Next.js</div>
+            {/* AI & Modern Tools */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <div className="w-20 h-20 bg-indigo-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-4xl">🤖</span>
               </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">AI & Innovation</h3>
+              <p className="text-gray-600 mb-4">Cutting-edge AI integration and modern development tools</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm">OpenAI</span>
+                <span className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm">Machine Learning</span>
+                <span className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm">API Integration</span>
+                <span className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm">Automation</span>
+                <span className="px-3 py-1 bg-indigo-50 text-indigo-700 rounded-full text-sm">Webhooks</span>
+              </div>
+            </div>
+            
+            {/* Frontend Solutions */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <div className="w-20 h-20 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-4xl">🎨</span>
+              </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Frontend Excellence</h3>
+              <p className="text-gray-600 mb-4">Modern, responsive user interfaces that captivate your audience</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">React</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Next.js</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Vue</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Angular</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">TypeScript</span>
+              </div>
+            </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-green-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-2xl">🟢</span>
-                </div>
-                <div className="text-sm font-medium text-gray-700">Node.js</div>
+            {/* Backend & Cloud */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-4xl">⚡</span>
               </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Scalable Backend</h3>
+              <p className="text-gray-600 mb-4">Robust server architecture that grows with your business</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">Node.js</span>
+                <span className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">Python</span>
+                <span className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">AWS</span>
+                <span className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">Docker</span>
+                <span className="px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm">Kubernetes</span>
+              </div>
+            </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-blue-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-2xl">🐍</span>
-                </div>
-                <div className="text-sm font-medium text-gray-700">Python</div>
+            {/* Mobile & Cross-Platform */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <div className="w-20 h-20 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-4xl">📱</span>
               </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Mobile Solutions</h3>
+              <p className="text-gray-600 mb-4">Native and cross-platform apps that reach every device</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm">React Native</span>
+                <span className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm">Flutter</span>
+                <span className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm">iOS</span>
+                <span className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm">Android</span>
+                <span className="px-3 py-1 bg-purple-50 text-purple-700 rounded-full text-sm">PWA</span>
+              </div>
+            </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-orange-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-2xl">☁️</span>
-                </div>
-                <div className="text-sm font-medium text-gray-700">AWS</div>
+            {/* Database & Analytics */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <div className="w-20 h-20 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-4xl">🗄️</span>
               </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">Data Management</h3>
+              <p className="text-gray-600 mb-4">Secure, efficient data storage and intelligent analytics</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm">MongoDB</span>
+                <span className="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm">PostgreSQL</span>
+                <span className="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm">Redis</span>
+                <span className="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm">Analytics</span>
+                <span className="px-3 py-1 bg-orange-50 text-orange-700 rounded-full text-sm">BigQuery</span>
+              </div>
+            </div>
 
-              <div className="text-center">
-                <div className="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <span className="text-2xl">📱</span>
-                </div>
-                <div className="text-sm font-medium text-gray-700">Mobile</div>
+            {/* DevOps & Security */}
+            <div className="bg-white rounded-2xl shadow-lg p-8 text-center">
+              <div className="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <span className="text-4xl">🔒</span>
               </div>
+              <h3 className="text-2xl font-bold text-gray-800 mb-4">DevOps & Security</h3>
+              <p className="text-gray-600 mb-4">Automated deployments with enterprise-grade security</p>
+              <div className="flex flex-wrap gap-2 justify-center">
+                <span className="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm">CI/CD</span>
+                <span className="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm">GitHub Actions</span>
+                <span className="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm">SSL/TLS</span>
+                <span className="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm">OAuth</span>
+                <span className="px-3 py-1 bg-red-50 text-red-700 rounded-full text-sm">Monitoring</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Message */}
+          <div className="text-center mt-12">
+            <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
+              <h4 className="text-2xl font-bold text-gray-800 mb-4">Technology Agnostic Approach</h4>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+                We believe the best solution isn't about the latest trend—it's about choosing the right technology stack for <strong>your specific needs</strong>. Whether it's a cutting-edge framework or a proven solution, we adapt our expertise to deliver exactly what your start-up requires to succeed.
+              </p>
             </div>
           </div>
         </section>
