@@ -441,89 +441,23 @@ const Home: React.FC = () => {
       </section>
 
       <footer id="about" className="bg-gray-900 text-white py-10 px-6">
-        <div className="max-w-7xl mx-auto">
-          {/* Wrapper for Subscribe + Footer Links */}
-          <div className="flex flex-col lg:flex-row lg:justify-between gap-10">
-
-            {/* Subscribe Section */}
-            <div className="lg:w-1/3">
-              <img src="/wordmark logo - Dark.png" alt="Logo" className="h-12 mb-4" />
-              <h2 className="text-xl font-semibold">Get in Touch</h2>
-              <p className="text-gray-400 text-sm mt-1">
-                Have questions or want to discuss your project? Reach out to us and we&apos;ll get back to you as soon as possible.
-              </p>
-              <button className="mt-3 px-4 py-2 border border-gray-400 rounded-lg text-white hover:bg-gray-800">
-                Contact Us
-              </button>
-            </div>
-
-            {/* Footer Links */}
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-4 gap-6 text-sm flex-grow">
-              <div>
-                <h3 className="text-white font-semibold">Product</h3>
-                <ul className="mt-2 space-y-1 text-gray-400">
-                  <li>Features</li>
-                  <li>Enterprise</li>
-                  <li>Copilot</li>
-                  <li>Security</li>
-                  <li>Pricing</li>
-                  <li>Team</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold">Platform</h3>
-                <ul className="mt-2 space-y-1 text-gray-400">
-                  <li>Developer API</li>
-                  <li>Partners</li>
-                  <li>Education</li>
-                  <li>GitHub CLI</li>
-                  <li>GitHub Desktop</li>
-                  <li>GitHub Mobile</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold">Support</h3>
-                <ul className="mt-2 space-y-1 text-gray-400">
-                  <li>Docs</li>
-                  <li>Community Forum</li>
-                  <li>Professional Services</li>
-                  <li>Premium Support</li>
-                  <li>Skills</li>
-                  <li>Status</li>
-                </ul>
-              </div>
-              <div>
-                <h3 className="text-white font-semibold">Company</h3>
-                <ul className="mt-2 space-y-1 text-gray-400">
-                  <li>About</li>
-                  <li>Customer stories</li>
-                  <li>Blog</li>
-                  <li>Careers</li>
-                  <li>Newsroom</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer Bottom */}
+        {/* Footer Bottom */}
           <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
             <p>© 2025 MySofty, Inc.</p>
             <p className="mt-1">
               <a href="#" className="hover:underline">Terms</a> •
-              <a href="#" className="hover:underline">Privacy</a> •
-              <a href="#" className="hover:underline">Sitemap</a> •
-              <a href="#" className="hover:underline">What is Git?</a>
+              <a href="#" className="hover:underline"> Privacy</a>
+              {/* <a href="#" className="hover:underline"> Sitemap</a> */}
             </p>
 
             {/* Social Icons */}
             <div className="flex justify-center space-x-4 mt-4 text-lg">
-              <a href="#" className="hover:text-gray-300">🔗</a>
-              <a href="#" className="hover:text-gray-300">📸</a>
-              <a href="#" className="hover:text-gray-300">🎥</a>
-              <a href="#" className="hover:text-gray-300">🐦</a>
+              <a href="https://www.linkedin.com/in/mysofty" className="hover:text-gray-300">🔗</a>
+              <a href="https://www.linkedin.com/company/mysofty/" className="hover:text-gray-300">📸</a>
+              <a href="https://www.linkedin.com/company/mysofty/" className="hover:text-gray-300">🎥</a>
+              <a href="https://www.reddit.com/user/mysofty/" className="hover:text-gray-300">🐦</a>
             </div>
           </div>
-        </div>
       </footer>
 
     </div>
