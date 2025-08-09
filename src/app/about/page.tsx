@@ -1,7 +1,6 @@
 "use client"
 import React from "react";
 import Link from "next/link";
-import { Link as ScrollLink } from "react-scroll";
 
 const AboutPage: React.FC = () => {
   return (
@@ -40,13 +39,13 @@ const AboutPage: React.FC = () => {
             <h2 className="text-4xl font-bold text-gray-800 mb-8 text-center">Our Story</h2>
             <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                MySofty was born from a simple belief: great software shouldn't take forever to build. Founded by a team of experienced developers and designers who were frustrated with lengthy development cycles, we set out to revolutionize how software is created.
+                MySofty was born from a simple belief: great software shouldn&apos;t take forever to build. Founded by a team of experienced developers and designers who were frustrated with lengthy development cycles, we set out to revolutionize how software is created.
               </p>
               <p className="text-lg text-gray-700 mb-6 leading-relaxed">
                 Our journey began in Dubai, UAE, where we recognized a gap in the market for rapid, high-quality software development. Traditional agencies were taking months or even years to deliver projects, while businesses needed solutions fast to stay competitive.
               </p>
               <p className="text-lg text-gray-700 leading-relaxed">
-                Today, we've successfully delivered 50+ projects across various industries, maintaining our commitment to excellence and speed. Our 30-day promise isn't just a marketing slogan – it's a testament to our efficient processes, experienced team, and innovative approach to software development.
+                Today, we&apos;ve successfully delivered 50+ projects across various industries, maintaining our commitment to excellence and speed. Our 30-day promise isn&apos;t just a marketing slogan – it&apos;s a testament to our efficient processes, experienced team, and innovative approach to software development.
               </p>
             </div>
           </div>
@@ -105,7 +104,7 @@ const AboutPage: React.FC = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Speed & Quality</h3>
               <p className="text-gray-600">
-                We prove that speed doesn't compromise quality. Our streamlined processes and expert team deliver exceptional results within tight timelines.
+                We prove that speed doesn&apos;t compromise quality. Our streamlined processes and expert team deliver exceptional results within tight timelines.
               </p>
             </div>
 
@@ -115,7 +114,7 @@ const AboutPage: React.FC = () => {
               </div>
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Partnership</h3>
               <p className="text-gray-600">
-                We don't just build software; we build relationships. Every client becomes a partner in their journey toward digital success.
+                We don&apos;t just build software; we build relationships. Every client becomes a partner in their journey toward digital success.
               </p>
             </div>
           </div>
@@ -274,7 +273,7 @@ const AboutPage: React.FC = () => {
         <section className="mb-20">
           <h2 className="text-4xl font-bold text-gray-800 mb-4 text-center">Modern Start-up Solutions</h2>
           <p className="text-xl text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            We don't limit ourselves to specific technologies. Our expertise spans across all modern frameworks, platforms, and tools needed to bring your start-up vision to life.
+            We don&apos;t limit ourselves to specific technologies. Our expertise spans across all modern frameworks, platforms, and tools needed to bring your start-up vision to life.
           </p>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -381,7 +380,7 @@ const AboutPage: React.FC = () => {
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
               <h4 className="text-2xl font-bold text-gray-800 mb-4">Technology Agnostic Approach</h4>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                We believe the best solution isn't about the latest trend—it's about choosing the right technology stack for <strong>your specific needs</strong>. Whether it's a cutting-edge framework or a proven solution, we adapt our expertise to deliver exactly what your start-up requires to succeed.
+                We believe the best solution isn&apos;t about the latest trend—it&apos;s about choosing the right technology stack for <strong>your specific needs</strong>. Whether it&apos;s a cutting-edge framework or a proven solution, we adapt our expertise to deliver exactly what your start-up requires to succeed.
               </p>
             </div>
           </div>
