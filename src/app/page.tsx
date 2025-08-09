@@ -393,7 +393,7 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <footer className="bg-gray-900 text-white py-10 px-6">
+      <footer id="about" className="bg-gray-900 text-white py-10 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Wrapper for Subscribe + Footer Links */}
           <div className="flex flex-col lg:flex-row lg:justify-between gap-10">
