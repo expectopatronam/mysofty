@@ -136,7 +136,7 @@ const Home: React.FC = () => {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>): Promise<void> => {
     e.preventDefault();
-    
+
     try {
       const response = await fetch('https://bill-api.mysofty.tech/get-in-touch/', {
         method: 'POST',
@@ -260,12 +260,16 @@ const Home: React.FC = () => {
           </p>
 
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4">
-            <button className="px-6 py-3 text-lg font-semibold bg-gray-900 text-white rounded-lg shadow-md hover:bg-gray-800 transition">
-              Get Started →
-            </button>
-            <button className="px-6 py-3 text-lg font-semibold bg-white text-gray-900 border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition">
-              Learn More ↓
-            </button>
+            <Link to="contact" smooth duration={500}>
+              <button className="px-6 py-3 text-lg font-semibold bg-gray-900 text-white rounded-lg shadow-md hover:bg-gray-800 transition">
+                Get Started →
+              </button>
+            </Link>
+            <Link to="products" smooth duration={500}>
+              <button className="px-6 py-3 text-lg font-semibold bg-white text-gray-900 border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition">
+                Learn More ↓
+              </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -366,72 +370,72 @@ const Home: React.FC = () => {
 
           <div className="bg-white rounded-2xl shadow-lg p-8 md:p-12">
             <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
-                required
-              />
-            </div>
-            <div>
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
-                required
-              />
-            </div>
-            <div>
-              <input
-                type="tel"
-                name="phone"
-                placeholder="Phone Number"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
-                required
-              />
-              <p className="text-sm text-gray-600 mt-1 font-medium">
-                Please enter your phone number with country code (+971 501234567).
-              </p>
-            </div>
-            <div>
-              <input
-                type="text"
-                name="subject"
-                placeholder="Subject"
-                value={formData.subject}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
-                required
-              />
-            </div>
-            <div>
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                value={formData.message}
-                onChange={handleInputChange}
-                className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 min-h-[150px] resize-vertical"
-                required
-              />
-            </div>
-            <div className="text-center">
-              <button
-                type="submit"
-                className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold rounded-lg hover:shadow-lg transition-shadow"
-              >
-                Send Message
-              </button>
-            </div>
-          </form>
+              <div>
+                <input
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  value={formData.email}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                  required
+                />
+              </div>
+              <div>
+                <input
+                  type="tel"
+                  name="phone"
+                  placeholder="Phone Number"
+                  value={formData.phone}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                  required
+                />
+                <p className="text-sm text-gray-600 mt-1 font-medium">
+                  Please enter your phone number with country code (+971 501234567).
+                </p>
+              </div>
+              <div>
+                <input
+                  type="text"
+                  name="subject"
+                  placeholder="Subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200"
+                  required
+                />
+              </div>
+              <div>
+                <textarea
+                  name="message"
+                  placeholder="Your Message"
+                  value={formData.message}
+                  onChange={handleInputChange}
+                  className="w-full px-4 py-3 rounded-lg border-2 border-gray-300 bg-white text-gray-900 placeholder-gray-500 focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-200 min-h-[150px] resize-vertical"
+                  required
+                />
+              </div>
+              <div className="text-center">
+                <button
+                  type="submit"
+                  className="px-8 py-3 bg-gradient-to-r from-blue-600 to-blue-800 text-white font-bold rounded-lg hover:shadow-lg transition-shadow"
+                >
+                  Send Message
+                </button>
+              </div>
+            </form>
           </div>
         </div>
       </section>
@@ -446,10 +450,10 @@ const Home: React.FC = () => {
               <img src="/wordmark logo - Dark.png" alt="Logo" className="h-12 mb-4" />
               <h2 className="text-xl font-semibold">Get in Touch</h2>
               <p className="text-gray-400 text-sm mt-1">
-              Have questions or want to discuss your project? Reach out to us and we&apos;ll get back to you as soon as possible.
+                Have questions or want to discuss your project? Reach out to us and we&apos;ll get back to you as soon as possible.
               </p>
               <button className="mt-3 px-4 py-2 border border-gray-400 rounded-lg text-white hover:bg-gray-800">
-              Contact Us
+                Contact Us
               </button>
             </div>
 
