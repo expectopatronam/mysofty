@@ -1,6 +1,7 @@
 "use client"
 import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-scroll";
+import NextLink from "next/link";
 
 
 interface Service {
@@ -178,8 +179,8 @@ const Home: React.FC = () => {
           <img src="/wordmark logo - nobg.png" alt="Logo" className="h-20" />
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex space-x-6">
-            {["products", "reviews", "contact", "about"].map((item) => (
+          <div className="hidden md:flex space-x-6 items-center">
+            {["products", "reviews", "contact"].map((item) => (
               <Link
                 key={item}
                 to={item}
@@ -190,6 +191,25 @@ const Home: React.FC = () => {
                 {item}
               </Link>
             ))}
+            <NextLink href="/about" className="font-bold hover:text-blue-400 transition-colors cursor-pointer">
+              About
+            </NextLink>
+            <div className="relative group">
+              <button className="font-bold hover:text-blue-400 transition-colors cursor-pointer flex items-center">
+                More
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
+                </svg>
+              </button>
+              <div className="absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-20">
+                <NextLink href="/terms" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">
+                  Terms of Service
+                </NextLink>
+                <NextLink href="/privacy" className="block px-4 py-2 text-gray-700 hover:bg-gray-100 transition-colors">
+                  Privacy Policy
+                </NextLink>
+              </div>
+            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -227,7 +247,7 @@ const Home: React.FC = () => {
 
                 {/* Drawer Content */}
                 <div className="flex flex-col p-4">
-                  {["products", "reviews", "contact", "about"].map((item) => (
+                  {["products", "reviews", "contact"].map((item) => (
                     <Link
                       key={item}
                       to={item}
@@ -239,6 +259,32 @@ const Home: React.FC = () => {
                       {item}
                     </Link>
                   ))}
+                  <NextLink
+                    href="/about"
+                    className="py-3 px-4 text-lg font-medium hover:bg-gray-100 rounded-lg transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    About
+                  </NextLink>
+
+                  {/* Divider */}
+                  <div className="border-t border-gray-200 my-4"></div>
+
+                  {/* Additional Pages */}
+                  <NextLink
+                    href="/terms"
+                    className="py-3 px-4 text-lg font-medium hover:bg-gray-100 rounded-lg transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Terms of Service
+                  </NextLink>
+                  <NextLink
+                    href="/privacy"
+                    className="py-3 px-4 text-lg font-medium hover:bg-gray-100 rounded-lg transition-colors"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    Privacy Policy
+                  </NextLink>
                 </div>
               </div>
             </div>
@@ -362,6 +408,152 @@ const Home: React.FC = () => {
         </div>
       </section>
 
+      {/* About Us Section */}
+      <section id="about" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">About MySofty</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                We are a passionate team of developers, designers, and digital strategists dedicated to transforming your ideas into exceptional software solutions.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
+              {/* Left Content */}
+              <div>
+                <h3 className="text-3xl font-bold text-gray-800 mb-6">Our Mission</h3>
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  At MySofty, we believe that every great business starts with a brilliant idea. Our mission is to bridge the gap between your vision and reality by delivering high-quality, scalable software solutions in just 30 days.
+                </p>
+                <p className="text-gray-700 mb-6 leading-relaxed">
+                  We combine cutting-edge technology with creative design thinking to build products that not only meet your requirements but exceed your expectations.
+                </p>
+                <div className="grid grid-cols-2 gap-4">
+                  <div className="text-center p-4 bg-blue-50 rounded-lg">
+                    <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
+                    <div className="text-gray-600 text-sm">Projects Delivered</div>
+                  </div>
+                  <div className="text-center p-4 bg-green-50 rounded-lg">
+                    <div className="text-3xl font-bold text-green-600 mb-2">30</div>
+                    <div className="text-gray-600 text-sm">Days Average</div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Right Content */}
+              <div className="space-y-6">
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mr-4">
+                      <span className="text-2xl">💡</span>
+                    </div>
+                    <h4 className="text-xl font-semibold text-gray-800">Innovation First</h4>
+                  </div>
+                  <p className="text-gray-600">
+                    We stay ahead of technology trends to deliver modern, future-proof solutions that give your business a competitive edge.
+                  </p>
+                </div>
+
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mr-4">
+                      <span className="text-2xl">🎯</span>
+                    </div>
+                    <h4 className="text-xl font-semibold text-gray-800">Results Driven</h4>
+                  </div>
+                  <p className="text-gray-600">
+                    Every project is approached with clear goals, measurable outcomes, and a focus on delivering real business value.
+                  </p>
+                </div>
+
+                <div className="bg-gray-50 p-6 rounded-xl">
+                  <div className="flex items-center mb-4">
+                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center mr-4">
+                      <span className="text-2xl">🤝</span>
+                    </div>
+                    <h4 className="text-xl font-semibold text-gray-800">Partnership Approach</h4>
+                  </div>
+                  <p className="text-gray-600">
+                    We work as an extension of your team, providing ongoing support and building long-term relationships.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Our Process */}
+            <div className="text-center mb-12">
+              <h3 className="text-3xl font-bold text-gray-800 mb-4">Our Process</h3>
+              <p className="text-xl text-gray-600 mb-12">From concept to deployment in 30 days</p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  1
+                </div>
+                <h4 className="text-xl font-semibold text-gray-800 mb-2">Discovery</h4>
+                <p className="text-gray-600 text-sm">
+                  We understand your business needs, goals, and technical requirements through detailed consultation.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  2
+                </div>
+                <h4 className="text-xl font-semibold text-gray-800 mb-2">Design</h4>
+                <p className="text-gray-600 text-sm">
+                  Our design team creates intuitive user experiences and visual designs that align with your brand.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-purple-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  3
+                </div>
+                <h4 className="text-xl font-semibold text-gray-800 mb-2">Development</h4>
+                <p className="text-gray-600 text-sm">
+                  We build your solution using the latest technologies, with regular updates and feedback loops.
+                </p>
+              </div>
+
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-2xl font-bold">
+                  4
+                </div>
+                <h4 className="text-xl font-semibold text-gray-800 mb-2">Launch</h4>
+                <p className="text-gray-600 text-sm">
+                  We deploy your solution and provide ongoing support to ensure smooth operation and growth.
+                </p>
+              </div>
+            </div>
+
+            {/* Call to Action */}
+            <div className="text-center mt-16">
+              <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+                <h3 className="text-3xl font-bold mb-4">Ready to Start Your Project?</h3>
+                <p className="text-xl mb-6 opacity-90">
+                  Join the companies that trust MySofty to bring their ideas to life.
+                </p>
+                <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                  <Link to="contact" smooth duration={500}>
+                    <button className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg hover:shadow-lg transition-shadow h-12 flex items-center justify-center">
+                      Let&apos;s Build Something Amazing
+                    </button>
+                  </Link>
+                  <NextLink href="/about">
+                    <button className="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-200 h-12 flex items-center justify-center">
+                      Know More →
+                    </button>
+                  </NextLink>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Section */}
       <section id="contact" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6 max-w-4xl">
@@ -440,24 +632,128 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <footer id="about" className="bg-gray-900 text-white py-10 px-6">
-        {/* Footer Bottom */}
-          <div className="mt-10 border-t border-gray-700 pt-6 text-center text-gray-500 text-sm">
-            <p>© 2025 MySofty, Inc.</p>
-            <p className="mt-1">
-              <a href="#" className="hover:underline">Terms</a> •
-              <a href="#" className="hover:underline"> Privacy</a>
-              {/* <a href="#" className="hover:underline"> Sitemap</a> */}
-            </p>
+      <footer id="about" className="bg-gradient-to-br from-gray-900 to-gray-800 text-white py-16 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
 
-            {/* Social Icons */}
-            <div className="flex justify-center space-x-4 mt-4 text-lg">
-              <a href="https://www.linkedin.com/in/mysofty" className="hover:text-gray-300">🔗</a>
-              <a href="https://www.linkedin.com/company/mysofty/" className="hover:text-gray-300">📸</a>
-              <a href="https://www.linkedin.com/company/mysofty/" className="hover:text-gray-300">🎥</a>
-              <a href="https://www.reddit.com/user/mysofty/" className="hover:text-gray-300">🐦</a>
+            {/* Company Info */}
+            <div className="lg:col-span-1">
+              <img src="/wordmark logo - Dark.png" alt="MySofty Logo" className="h-12 mb-4" />
+              <p className="text-gray-300 text-sm mb-6 leading-relaxed">
+                Transform your ideas into reality with professional software development services. We deliver innovative solutions in 30 days.
+              </p>
+              <div className="flex space-x-4">
+                <a href="https://www.linkedin.com/in/mysofty" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-600 transition-colors duration-200">
+                  <span className="text-sm">🔗</span>
+                </a>
+                <a href="https://www.linkedin.com/company/mysofty/" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-pink-600 transition-colors duration-200">
+                  <span className="text-sm">📸</span>
+                </a>
+                <a href="https://www.linkedin.com/company/mysofty/" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-red-600 transition-colors duration-200">
+                  <span className="text-sm">🎥</span>
+                </a>
+                <a href="https://www.reddit.com/user/mysofty/" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-blue-400 transition-colors duration-200">
+                  <span className="text-sm">🐦</span>
+                </a>
+              </div>
+            </div>
+
+            {/* Services */}
+            <div>
+              <h3 className="text-white font-semibold text-lg mb-4">Services</h3>
+              <ul className="space-y-2 text-gray-300 text-sm">
+                <li>
+                  <Link to="products" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    Web Development
+                  </Link>
+                </li>
+                <li>
+                  <Link to="products" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    Mobile Apps
+                  </Link>
+                </li>
+                <li>
+                  <Link to="products" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    UI/UX Design
+                  </Link>
+                </li>
+                <li>
+                  <Link to="products" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    Digital Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link to="products" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    Quality Assurance
+                  </Link>
+                </li>
+                <li>
+                  <Link to="products" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    API Integration
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Company */}
+            <div>
+              <h3 className="text-white font-semibold text-lg mb-4">Company</h3>
+              <ul className="space-y-2 text-gray-300 text-sm">
+                <li>
+                  <Link to="about" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    About Us
+                  </Link>
+                </li>
+                <li>
+                  <Link to="reviews" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    Testimonials
+                  </Link>
+                </li>
+                <li>
+                  <Link to="products" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    Our Work
+                  </Link>
+                </li>
+                <li>
+                  <Link to="contact" smooth duration={500} className="hover:text-white transition-colors duration-200 cursor-pointer">
+                    Careers
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <h3 className="text-white font-semibold text-lg mb-4">Get In Touch</h3>
+              <div className="space-y-3 text-gray-300 text-sm">
+                <div className="flex items-center space-x-2">
+                  <span>📧</span>
+                  <a href="mailto:yousuff@mysofty.tech" className="hover:text-white transition-colors duration-200">yousuff@mysofty.tech</a>
+                </div>
+                <div className="flex items-start space-x-2">
+                  <span>📍</span>
+                  <span>Dubai, UAE</span>
+                </div>
+              </div>
+              <Link to="contact" smooth duration={500}>
+                <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-200 text-sm font-medium">
+                  Start Your Project
+                </button>
+              </Link>
             </div>
           </div>
+
+          {/* Footer Bottom */}
+          <div className="border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
+            <div className="text-center md:text-left mb-4 md:mb-0">
+              <p className="text-gray-400 text-sm">© 2025 MySofty, Inc. All rights reserved.</p>
+            </div>
+            <div className="flex space-x-6 text-gray-400 text-sm">
+              <NextLink href="/privacy" className="hover:text-white transition-colors duration-200">Privacy Policy</NextLink>
+              <NextLink href="/terms" className="hover:text-white transition-colors duration-200">Terms of Service</NextLink>
+            </div>
+          </div>
+        </div>
       </footer>
 
     </div>
