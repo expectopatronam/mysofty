@@ -302,11 +302,11 @@ const AboutPage: React.FC = () => {
               <h3 className="text-2xl font-bold text-gray-800 mb-4">Frontend Excellence</h3>
               <p className="text-gray-600 mb-4">Modern, responsive user interfaces that captivate your audience</p>
               <div className="flex flex-wrap gap-2 justify-center">
-                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">React</span>
-                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Next.js</span>
-                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Vue</span>
-                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Angular</span>
-                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">TypeScript</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Web</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Mobile</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Windows</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Mac</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-sm">Linux</span>
               </div>
             </div>
 

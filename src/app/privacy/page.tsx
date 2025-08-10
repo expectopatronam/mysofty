@@ -145,8 +145,8 @@ const PrivacyPolicy: React.FC = () => {
               If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us:
             </p>
             <div className="bg-gray-50 p-6 rounded-lg">
-              <p className="text-gray-700 mb-2"><strong>Email:</strong> yousuff@mysofty.tech</p>
-              {/* <p className="text-gray-700 mb-2"><strong>General Contact:</strong> yousuff@mysofty.tech</p> */}
+              <p className="text-gray-700 mb-2"><strong>Email:</strong> info@mysofty.tech</p>
+              {/* <p className="text-gray-700 mb-2"><strong>General Contact:</strong> info@mysofty.tech</p> */}
               <p className="text-gray-700"><strong>Address:</strong> Dubai, UAE</p>
             </div>
 

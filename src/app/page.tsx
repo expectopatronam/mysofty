@@ -311,7 +311,7 @@ const Home: React.FC = () => {
                 Get Started →
               </button>
             </Link>
-            <Link to="products" smooth duration={500}>
+            <Link to="about" smooth duration={500}>
               <button className="px-6 py-3 text-lg font-semibold bg-white text-gray-900 border border-gray-300 rounded-lg shadow-md hover:bg-gray-100 transition">
                 Learn More ↓
               </button>
@@ -336,73 +336,6 @@ const Home: React.FC = () => {
                   className="h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
                 />
               </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Services Section */}
-      <section id="products" className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">Our Services</h2>
-          <p className="text-xl text-center text-gray-600 mb-16">End-to-End Software Solutions</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
-                <div className="text-5xl mb-6">{service.icon}</div>
-                <h3 className="text-2xl font-bold text-gray-800 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6">{service.description}</p>
-                <ul className="space-y-3">
-                  {service.features.map((feature, i) => (
-                    <li key={i} className="text-gray-700 border-b border-gray-200 pb-2">{feature}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Reviews Section */}
-      <section id="reviews" className="py-20 bg-gradient-to-br from-gray-200 to-gray-300">
-        <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">Client Testimonials</h2>
-
-          <div className="flex items-center justify-center gap-8">
-            <button
-              onClick={prevReview}
-              className="w-12 h-12 rounded-full border-2 border-gray-600 text-gray-600 flex items-center justify-center hover:bg-gray-600 hover:text-white transition-colors"
-            >
-              &lt;
-            </button>
-
-            <div className="bg-white/30 backdrop-blur-md rounded-2xl p-8 max-w-2xl">
-              <div className="text-2xl mb-4">{"⭐".repeat(reviews[currentReview].rating)}</div>
-              <p className="text-lg text-gray-800 mb-8">{reviews[currentReview].review}</p>
-              <div className="border-t border-gray-300 pt-6">
-                <h3 className="font-bold text-xl text-gray-800">{reviews[currentReview].name}</h3>
-                <p className="text-gray-600">{reviews[currentReview].position}</p>
-                <p className="text-gray-500">{reviews[currentReview].company}</p>
-              </div>
-            </div>
-
-            <button
-              onClick={nextReview}
-              className="w-12 h-12 rounded-full border-2 border-gray-600 text-gray-600 flex items-center justify-center hover:bg-gray-600 hover:text-white transition-colors"
-            >
-              &gt;
-            </button>
-          </div>
-
-          <div className="flex justify-center gap-3 mt-8">
-            {reviews.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentReview(index)}
-                className={`w-3 h-3 rounded-full transition-colors ${currentReview === index ? "bg-gray-800" : "bg-gray-400"
-                  }`}
-              />
             ))}
           </div>
         </div>
@@ -537,19 +470,86 @@ const Home: React.FC = () => {
                   Join the companies that trust MySofty to bring their ideas to life.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                  <Link to="contact" smooth duration={500}>
-                    <button className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg hover:shadow-lg transition-shadow h-12 flex items-center justify-center">
-                      Let&apos;s Build Something Amazing
-                    </button>
-                  </Link>
                   <NextLink href="/about">
                     <button className="px-8 py-3 border-2 border-white text-white font-bold rounded-lg hover:bg-white hover:text-blue-600 transition-colors duration-200 h-12 flex items-center justify-center">
                       Know More →
                     </button>
                   </NextLink>
+                  <Link to="contact" smooth duration={500}>
+                    <button className="px-8 py-3 bg-white text-blue-600 font-bold rounded-lg hover:shadow-lg transition-shadow h-12 flex items-center justify-center">
+                      Let&apos;s Build Something Amazing
+                    </button>
+                  </Link>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Reviews Section */}
+      <section id="reviews" className="py-20 bg-gradient-to-br from-gray-200 to-gray-300">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-gray-800 mb-16">Client Testimonials</h2>
+
+          <div className="flex items-center justify-center gap-8">
+            <button
+              onClick={prevReview}
+              className="w-12 h-12 rounded-full border-2 border-gray-600 text-gray-600 flex items-center justify-center hover:bg-gray-600 hover:text-white transition-colors"
+            >
+              &lt;
+            </button>
+
+            <div className="bg-white/30 backdrop-blur-md rounded-2xl p-8 max-w-2xl">
+              <div className="text-2xl mb-4">{"⭐".repeat(reviews[currentReview].rating)}</div>
+              <p className="text-lg text-gray-800 mb-8">{reviews[currentReview].review}</p>
+              <div className="border-t border-gray-300 pt-6">
+                <h3 className="font-bold text-xl text-gray-800">{reviews[currentReview].name}</h3>
+                <p className="text-gray-600">{reviews[currentReview].position}</p>
+                <p className="text-gray-500">{reviews[currentReview].company}</p>
+              </div>
+            </div>
+
+            <button
+              onClick={nextReview}
+              className="w-12 h-12 rounded-full border-2 border-gray-600 text-gray-600 flex items-center justify-center hover:bg-gray-600 hover:text-white transition-colors"
+            >
+              &gt;
+            </button>
+          </div>
+
+          <div className="flex justify-center gap-3 mt-8">
+            {reviews.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentReview(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${currentReview === index ? "bg-gray-800" : "bg-gray-400"
+                  }`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section id="products" className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold text-center text-gray-800 mb-4">Our Services</h2>
+          <p className="text-xl text-center text-gray-600 mb-16">End-to-End Software Solutions</p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {services.map((service, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg p-8 hover:shadow-xl transition-shadow">
+                <div className="text-5xl mb-6">{service.icon}</div>
+                <h3 className="text-2xl font-bold text-gray-800 mb-4">{service.title}</h3>
+                <p className="text-gray-600 mb-6">{service.description}</p>
+                <ul className="space-y-3">
+                  {service.features.map((feature, i) => (
+                    <li key={i} className="text-gray-700 border-b border-gray-200 pb-2">{feature}</li>
+                  ))}
+                </ul>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -728,7 +728,7 @@ const Home: React.FC = () => {
               <div className="space-y-3 text-gray-300 text-sm">
                 <div className="flex items-center space-x-2">
                   <span>📧</span>
-                  <a href="mailto:yousuff@mysofty.tech" className="hover:text-white transition-colors duration-200">yousuff@mysofty.tech</a>
+                  <a href="mailto:info@mysofty.tech" className="hover:text-white transition-colors duration-200">info@mysofty.tech</a>
                 </div>
                 <div className="flex items-start space-x-2">
                   <span>📍</span>
