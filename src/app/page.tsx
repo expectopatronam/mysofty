@@ -1,5 +1,5 @@
 "use client"
-import React, { useState, useEffect, ChangeEvent, FormEvent } from "react";
+import React, { useState, useEffect, useRef, ChangeEvent, FormEvent } from "react";
 import { Link } from "react-scroll";
 import NextLink from "next/link";
 
@@ -89,17 +89,20 @@ const Home: React.FC = () => {
 
   const companyLogos = [
     { src: "/company/bec.png", alt: "BEC" },
-    { src: "/company/ecfile.png", alt: "ECFile" },
+    // { src: "/company/ecfile.png", alt: "ECFile" },
     { src: "/company/ecpaye.png", alt: "ECPaye" },
     { src: "/company/greeting-world.png", alt: "Greeting World" },
     { src: "/company/marine-ninjas.png", alt: "Marine Ninjas" },
-    { src: "/company/namdo.png", alt: "Namdo" },
-    { src: "/company/taamsi.png", alt: "Taamsi" },
+    // { src: "/company/namdo.png", alt: "Namdo" },
+    // { src: "/company/taamsi.png", alt: "Taamsi" },
     { src: "/company/taks-info.png", alt: "Taks Info" },
     { src: "/company/ubill.png", alt: "UBill" }
   ];
 
   const [currentReview, setCurrentReview] = useState<number>(0);
+  const [logoScrollPosition, setLogoScrollPosition] = useState<number>(0);
+  const [isAutoScrollPaused, setIsAutoScrollPaused] = useState<boolean>(false);
+  const [isManualScrolling, setIsManualScrolling] = useState<boolean>(false);
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
@@ -118,6 +121,145 @@ const Home: React.FC = () => {
       document.body.style.overflow = 'unset';
     };
   }, [isOpen]);
+
+  useEffect(() => {
+    let autoScrollInterval: NodeJS.Timeout | undefined;
+
+    if (!isAutoScrollPaused) {
+      autoScrollInterval = setInterval(() => {
+        setLogoScrollPosition((prev) => {
+          const maxScroll = companyLogos.length * 200;
+          return (prev + 1) % maxScroll;
+        });
+      }, 30);
+    }
+
+    return () => {
+      if (autoScrollInterval) {
+        clearInterval(autoScrollInterval);
+      }
+    };
+  }, [isAutoScrollPaused, companyLogos.length]);
+
+  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleManualScroll = () => {
+    setIsAutoScrollPaused(true);
+    setIsManualScrolling(true);
+    
+    if (resumeTimeoutRef.current) {
+      clearTimeout(resumeTimeoutRef.current);
+    }
+    
+    resumeTimeoutRef.current = setTimeout(() => {
+      setIsAutoScrollPaused(false);
+      setIsManualScrolling(false);
+    }, 1000);
+  };
+
+  const handleWheelScroll = (e: React.WheelEvent) => {
+    e.preventDefault();
+    setIsManualScrolling(true);
+    const scrollSpeed = e.deltaY > 0 ? 20 : -20;
+    
+    requestAnimationFrame(() => {
+      setLogoScrollPosition((prev) => {
+        const maxScroll = companyLogos.length * 200;
+        let newPosition = prev + scrollSpeed;
+        
+        if (newPosition < 0) {
+          newPosition = maxScroll + newPosition;
+        } else if (newPosition >= maxScroll) {
+          newPosition = newPosition - maxScroll;
+        }
+        
+        return newPosition;
+      });
+    });
+    
+    handleManualScroll();
+  };
+
+  const dragState = useRef({ startX: 0, isDragging: false });
+  const animationFrameRef = useRef<number | null>(null);
+
+  const handleMouseDown = (e: React.MouseEvent) => {
+    dragState.current.isDragging = true;
+    dragState.current.startX = e.clientX;
+    setIsManualScrolling(true);
+    handleManualScroll();
+  };
+
+  const handleMouseMove = (e: React.MouseEvent) => {
+    if (!dragState.current.isDragging) return;
+    e.preventDefault();
+    
+    const deltaX = dragState.current.startX - e.clientX;
+    
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
+    
+    animationFrameRef.current = requestAnimationFrame(() => {
+      setLogoScrollPosition((prev) => {
+        const maxScroll = companyLogos.length * 200;
+        let newPosition = prev + deltaX;
+        
+        if (newPosition < 0) {
+          newPosition = maxScroll + newPosition;
+        } else if (newPosition >= maxScroll) {
+          newPosition = newPosition - maxScroll;
+        }
+        
+        return newPosition;
+      });
+    });
+    
+    dragState.current.startX = e.clientX;
+  };
+
+  const handleMouseUp = () => {
+    dragState.current.isDragging = false;
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    dragState.current.isDragging = true;
+    dragState.current.startX = e.touches[0].clientX;
+    setIsManualScrolling(true);
+    handleManualScroll();
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (!dragState.current.isDragging) return;
+    e.preventDefault();
+    
+    const deltaX = dragState.current.startX - e.touches[0].clientX;
+    
+    if (animationFrameRef.current) {
+      cancelAnimationFrame(animationFrameRef.current);
+    }
+    
+    animationFrameRef.current = requestAnimationFrame(() => {
+      setLogoScrollPosition((prev) => {
+        const maxScroll = companyLogos.length * 200;
+        let newPosition = prev + deltaX;
+        
+        if (newPosition < 0) {
+          newPosition = maxScroll + newPosition;
+        } else if (newPosition >= maxScroll) {
+          newPosition = newPosition - maxScroll;
+        }
+        
+        return newPosition;
+      });
+    });
+    
+    dragState.current.startX = e.touches[0].clientX;
+  };
+
+  const handleTouchEnd = () => {
+    dragState.current.isDragging = false;
+  };
 
   const nextReview = (): void => {
     setCurrentReview((prev) => (prev === reviews.length - 1 ? 0 : prev + 1));
@@ -321,22 +463,44 @@ const Home: React.FC = () => {
       </section>
 
       {/* Companies Logo Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-200 to-gray-300">
+      <section className="py-12 bg-gradient-to-br from-gray-200 to-gray-300 overflow-hidden">
         <div className="container mx-auto px-6">
           <h2 className="text-xl text-center text-gray-600 mb-12">Trusted by Industry Leaders</h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center">
-            {companyLogos.map((logo, index) => (
-              <div
-                key={index}
-                className="w-full flex items-center justify-center p-4"
-              >
-                <img
-                  src={logo.src}
-                  alt={logo.alt}
-                  className="h-12 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
-                />
-              </div>
-            ))}
+          <div 
+            className="relative cursor-grab active:cursor-grabbing select-none"
+            onMouseEnter={handleManualScroll}
+            onWheel={handleWheelScroll}
+            onMouseDown={handleMouseDown}
+            onMouseMove={handleMouseMove}
+            onMouseUp={handleMouseUp}
+            onMouseLeave={handleMouseUp}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            style={{ touchAction: 'pan-y' }}
+          >
+            <div 
+              className="flex items-center gap-8"
+              style={{
+                transform: `translateX(-${logoScrollPosition}px)`,
+                width: `${companyLogos.length * 400}px`,
+                transition: isManualScrolling ? 'none' : 'transform 0.1s ease-out',
+                willChange: 'transform'
+              }}
+            >
+              {[...companyLogos, ...companyLogos, ...companyLogos].map((logo, index) => (
+                <div
+                  key={index}
+                  className="flex items-center justify-center p-4 min-w-[200px] h-20"
+                >
+                  <img
+                    src={logo.src}
+                    alt={logo.alt}
+                    className="h-16 object-contain filter grayscale hover:grayscale-0 transition-all duration-300"
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
